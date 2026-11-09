@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoGest - Sistema de Inventario Automotriz</title>
+    <!-- Librería oficial de Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación Superior -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="bi bi-car-front-fill"></i> AutoGest <span>FullStack</span>
+        </div>
+        <div id="usuario-sesion" class="usuario-info">
+            <span id="nombre-usuario">Modo Invitado (Solo Lectura)</span>
+            <button id="btn-cerrar-sesion" class="btn-secundario" style="display: none;">
+                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            </button>
+        </div>
+    </header>
+
+    <main class="contenedor-principal">
+
+        <!-- Autenticación (Login / Registro) -->
+        <section id="seccion-auth" class="tarjeta auth-tarjeta">
+            <h2><i class="bi bi-shield-lock"></i> Acceso al Sistema</h2>
+            <p class="subtexto">Inicia sesión con tu cuenta para agregar o eliminar vehículos del inventario.</p>
+            
+            <form id="form-auth">
+                <div class="campo-grupo">
+                    <label for="auth-username">Usuario</label>
+                    <input type="text" id="auth-username" placeholder="Ingresa tu usuario" required>
+                </div>
+                
+                <div class="campo-grupo">
+                    <label for="auth-password">Contraseña</label>
+                    <input type="password" id="auth-password" placeholder="Ingresa tu contraseña" required>
+                </div>
+
+                <div class="auth-botones">
+                    <button type="button" id="btn-login" class="btn-primario">
+                        <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión
+                    </button>
+                    <button type="button" id="btn-registro" class="btn-secundario">
+                        <i class="bi bi-person-plus"></i> Registrarse
+                    </button>
+                </div>
+            </form>
+            <p id="auth-mensaje" class="mensaje-alerta"></p>
+        </section>
+
+        <!-- Formulario para Agregar Vehículo -->
+        <section id="seccion-formulario" class="tarjeta" style="display: none;">
+            <h2><i class="bi bi-plus-circle"></i> Agregar Nuevo Vehículo</h2>
+            <form id="form-vehiculo" class="grid-form">
+                <div class="campo-grupo">
+                    <label for="v-marca">Marca</label>
+                    <input type="text" id="v-marca" placeholder="Ej: Toyota" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="v-modelo">Modelo</label>
+                    <input type="text" id="v-modelo" placeholder="Ej: Corolla" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="v-anio">Año</label>
+                    <input type="number" id="v-anio" placeholder="Ej: 2024" min="1990" max="2027" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="v-precio">Precio ($ USD)</label>
+                    <input type="number" id="v-precio" placeholder="Ej: 22000" min="0" required>
+                </div>
+                <div class="campo-grupo">
+                    <label for="v-color">Color</label>
+                    <input type="text" id="v-color" placeholder="Ej: Blanco" required>
+                </div>
+                <div class="campo-grupo boton-submit-grupo">
+                    <button type="submit" class="btn-exito">
+                        <i class="bi bi-check2-circle"></i> Guardar Vehículo
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Catálogo de Vehículos -->
+        <section class="tarjeta">
+            <div class="catalogo-header">
+                <h2><i class="bi bi-card-list"></i> Catálogo de Inventario</h2>
+                <button id="btn-recargar" class="btn-secundario">
+                    <i class="bi bi-arrow-clockwise"></i> Actualizar
+                </button>
+            </div>
+            <div id="lista-vehiculos" class="grid-vehiculos">
+                <!-- Se llena dinámicamente con JavaScript desde MongoDB -->
+            </div>
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+:root {
+    --primario: #1e3a8a;
+    --primario-hover: #1d4ed8;
+    --secundario: #475569;
+    --secundario-hover: #334155;
+    --exito: #16a34a;
+    --peligro: #dc2626;
+    --fondo: #f1f5f9;
+    --tarjeta-bg: #ffffff;
+    --texto: #1e293b;
+    --texto-mutado: #64748b;
+    --borde: #cbd5e1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primario);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-size: 13px;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+}
+
+/* Contenedor */
+.contenedor-principal {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Tarjetas */
+.tarjeta {
+    background: var(--tarjeta-bg);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--borde);
+}
+
+.tarjeta h2 {
+    color: var(--primario);
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.subtexto {
+    color: var(--texto-mutado);
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+/* Formularios */
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 15px;
+}
+
+.campo-grupo label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo-grupo input {
+    padding: 10px 12px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+.boton-submit-grupo {
+    margin-bottom: 15px;
+}
+
+/* Botones */
+button {
+    cursor: pointer;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-primario {
+    background: var(--primario);
+    color: white;
+}
+.btn-primario:hover {
+    background: var(--primario-hover);
+}
+
+.btn-secundario {
+    background: var(--secundario);
+    color: white;
+}
+.btn-secundario:hover {
+    background: var(--secundario-hover);
+}
+
+.btn-exito {
+    background: var(--exito);
+    color: white;
+    width: 100%;
+}
+.btn-exito:hover {
+    background: #15803d;
+}
+
+.btn-peligro {
+    background: var(--peligro);
+    color: white;
+    font-size: 12px;
+    padding: 6px 12px;
+}
+.btn-peligro:hover {
+    background: #b91c1c;
+}
+
+.auth-botones {
+    display: flex;
+    gap: 10px;
+}
+
+.mensaje-alerta {
+    margin-top: 15px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Grid de Catálogo */
+.catalogo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.grid-vehiculos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.vehiculo-card {
+    background: #ffffff;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+
+.vehiculo-card h3 {
+    color: var(--primario);
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.vehiculo-info {
+    font-size: 13px;
+    color: var(--texto-mutado);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.vehiculo-precio {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--exito);
+    margin-bottom: 12px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .grid-form {
+        grid-template-columns: 1fr;
+    }
+}
